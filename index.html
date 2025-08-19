@@ -35,6 +35,7 @@
       background: #333;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -109,6 +110,40 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.2);
     }
 
+    /* Ranks section */
+    .ranks {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    .rank {
+      background: #111;
+      color: #f4f4f4;
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.2s ease;
+    }
+
+    .rank:hover {
+      transform: scale(1.05);
+    }
+
+    .rank h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #ffcc00;
+    }
+
+    .rank p {
+      font-size: 0.95rem;
+    }
+
     footer {
       background: #222;
       color: #fff;
@@ -132,6 +167,7 @@
 
   <nav>
     <a href="#about">About</a>
+    <a href="#ranks">Ranks</a>
     <a href="#members">Members</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact">Contact</a>
@@ -156,6 +192,29 @@
         upholding all values of a Bug Jah in the meantime, and also fulfilling the duty as a Bug Jah, 
         such as doing tasks, accomplishing roles, and more.
       </p>
+    </div>
+  </section>
+
+  <!-- Ranks Section -->
+  <section id="ranks">
+    <h2>Ranks of BugJah</h2>
+    <div class="ranks">
+      <div class="rank">
+        <h3>Jahspirants</h3>
+        <p>The newcomers — those who wish to join Bug Jah. They prove their loyalty, discipline, and dedication before rising higher.</p>
+      </div>
+      <div class="rank">
+        <h3>Jah</h3>
+        <p>Trusted members of the family, recognized for their efforts and bond. They support the Bug Jah vision and represent the org.</p>
+      </div>
+      <div class="rank">
+        <h3>Bug Jah</h3>
+        <p>Elite members — the backbone of the group. They carry responsibility, respect, and influence among all Jahs.</p>
+      </div>
+      <div class="rank">
+        <h3>Bug Jah Leader</h3>
+        <p>The top of the hierarchy. The strategist, the voice, and the one who guides the family. The leader holds ultimate respect.</p>
+      </div>
     </div>
   </section>
 

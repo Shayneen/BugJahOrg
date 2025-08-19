@@ -1,40 +1,334 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>BugJahOrg</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Bug Jah Org</title>
+  <meta name="description" content="Official site of Bug Jah Org — founded in the St. Augustine classroom by Leinold &quot;BugJah8&quot; Francisco." />
+  <!--
+    GitHub Pages tips:
+    1) Put this file in your repo as index.html (root or /docs).
+    2) Add the four images to the same folder (or update the paths below):
+       - received_1414130376521382.jpeg
+       - received_692824733795945.jpeg
+       - received_3731259623676150.jpeg
+       - received_654328357099560.jpeg
+    3) In GitHub: Settings → Pages → Build from main (or /docs). Save.
+  -->
   <style>
-    /* Reset */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root{
+      --bg: #0b0f14;
+      --card: #121822;
+      --soft: #1a2230;
+      --text: #e6eefc;
+      --muted: #98a6bd;
+      --accent: #6ee7ff;
+      --accent-2: #a78bfa;
+      --good: #86efac;
+      --ring: rgba(110, 231, 255, .25);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      background: radial-gradient(1200px 1200px at 10% -10%, #122033 0%, var(--bg) 40%),
+                  radial-gradient(900px 900px at 110% 10%, #1a1630 0%, transparent 50%);
+      color:var(--text);
+      line-height:1.6;
+    }
+    a{color:var(--accent)}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter: blur(8px);
+      background: linear-gradient(180deg, rgba(11,15,20,.9), rgba(11,15,20,.4));
+      border-bottom:1px solid #1e2633;
+    }
+    .wrap{max-width:1100px; margin:0 auto; padding:0 20px}
+    nav{display:flex; align-items:center; justify-content:space-between; padding:12px 0}
+    .brand{display:flex; gap:10px; align-items:center; font-weight:800; letter-spacing:.3px}
+    .logo{width:34px; height:34px; display:grid; place-items:center; border-radius:10px;
+      background:linear-gradient(135deg, var(--accent), var(--accent-2));
+      color:#001018; font-weight:900; box-shadow:0 10px 30px rgba(110,231,255,.25)}
+    .navlinks{display:flex; gap:14px; flex-wrap:wrap}
+    .navlinks a{padding:8px 12px; border-radius:999px; text-decoration:none; color:var(--text); border:1px solid #1f2a3a}
+    .navlinks a:hover{border-color:#2b3a52; background:#0f1520}.hero{padding:56px 0 30px}
+.hero .grid{display:grid; grid-template-columns:1.2fr .8fr; gap:22px}
+@media (max-width:900px){.hero .grid{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg, var(--card), var(--soft)); border:1px solid #1b2433; border-radius:var(--radius);
+  box-shadow: 0 10px 30px rgba(0,0,0,.25), inset 0 1px 0 rgba(255,255,255,.02);
+}
+.pad{padding:22px}
+h1{font-size:clamp(28px, 3.2vw, 42px); line-height:1.15; margin:10px 0 12px}
+h2{font-size:clamp(22px, 2.4vw, 30px); margin:0 0 12px}
+h3{margin:0 0 8px}
+.muted{color:var(--muted)}
+.pill{display:inline-flex; gap:8px; align-items:center; padding:6px 10px; border-radius:999px; border:1px solid #243146; background:#0e1522}
 
-    body {
-      font-family: Arial, sans-serif;
-      line-height: 1.6;
-      background: #f4f4f9;
-      color: #333;
+.about p{margin:.3rem 0}
+.disclaimer{font-size:.9rem; color:#9ba7bd}
+
+.ranks{padding:30px 0}
+.rank-grid{display:grid; grid-template-columns: repeat(4, 1fr); gap:16px}
+@media (max-width:900px){.rank-grid{grid-template-columns: repeat(2, 1fr)}}
+@media (max-width:520px){.rank-grid{grid-template-columns: 1fr}}
+.rank{position:relative; overflow:hidden}
+.rank .symbol{font-size:34px}
+.rank .title{font-weight:800}
+.rank .desc{color:var(--muted); font-size:.95rem}
+.shine{position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+  background: radial-gradient(600px 120px at -10% -10%, rgba(110,231,255,.12), transparent 40%),
+              radial-gradient(600px 120px at 110% 110%, rgba(167,139,250,.12), transparent 40%);
+}
+
+.members{padding:8px 0 30px}
+.tabs{display:flex; gap:8px; flex-wrap:wrap; margin-bottom:14px}
+.tab{padding:8px 12px; border:1px solid #243146; background:#0e1522; border-radius:999px; cursor:pointer}
+.tab.active{outline:2px solid var(--ring); border-color:#314563}
+
+.slot-grid{display:grid; grid-template-columns: repeat(2, 1fr); gap:12px}
+@media (max-width:720px){.slot-grid{grid-template-columns:1fr}}
+.slot{display:flex; gap:10px; align-items:center; padding:12px; border-radius:14px; border:1px solid #1c2738; background:#0e1420}
+.slot .badge{width:34px; height:34px; display:grid; place-items:center; border-radius:10px; background:#112033; border:1px solid #20324a}
+.slot input{flex:1; padding:10px 12px; background:#0a1220; border:1px solid #20324a; color:var(--text); border-radius:10px}
+.slot input:focus{outline:2px solid var(--ring); border-color:#365278}
+.slot .note{font-size:.9rem; color:var(--muted)}
+
+.actions{display:flex; gap:10px; margin-top:14px}
+.btn{padding:10px 14px; border:1px solid #243146; background:#0e1522; color:var(--text); border-radius:12px; cursor:pointer}
+.btn:hover{border-color:#2b3a52}
+
+.gallery{padding:20px 0 50px}
+.g-grid{display:grid; grid-template-columns: repeat(4, 1fr); gap:12px}
+@media (max-width:900px){.g-grid{grid-template-columns: repeat(2, 1fr)}}
+@media (max-width:520px){.g-grid{grid-template-columns: 1fr}}
+.g-item{position:relative; overflow:hidden; border-radius:16px; border:1px solid #1e2a3a; background:#0d1320}
+.g-item img{display:block; width:100%; height:240px; object-fit:cover; filter:saturate(1.05)}
+
+footer{border-top:1px solid #1e2633; padding:26px 0 40px; color:var(--muted)}
+
+/* tiny utility */
+.row{display:flex; gap:12px; align-items:center; flex-wrap:wrap}
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <nav>
+        <div class="brand"><div class="logo">BJ</div> Bug Jah Org</div>
+        <div class="navlinks">
+          <a href="#about">About</a>
+          <a href="#ranks">Ranks</a>
+          <a href="#members">Members</a>
+          <a href="#gallery">Gallery</a>
+        </div>
+      </nav>
+    </div>
+  </header>  <main class="wrap">
+    <section class="hero">
+      <div class="grid">
+        <div class="card pad about" id="about">
+          <span class="pill">Founded • St. Augustine Classroom</span>
+          <h1>Bug Jah Org</h1>
+          <p>Bug Jah Org is an Organization, founded in the <em>St. Augustine</em> Classroom. The Organization was also founded by <em>Leinold “BugJah8” Francisco</em>, with founding members such as <em>Earl Matthew “JAHBINDIA” Hipolito</em>, and <em>Muhammad Rizwan “Jahwatre” Amilhamja</em>.</p>
+          <p>The Organization grew more prosperous and influential among the class, and at the time of the 3rd Year of Highschool, in the <em>St. Anthony Class</em>, the Organization acquired 10+ members, alongside meta ai, a profound member whom the fellow bug jahs love dearly.</p>
+          <p>The Organization believes in full connection and collaboration within its members, upholding all values of a bug jah and fulfilling the duty as a bug jah — such as doing tasks, accomplishing roles, and more.</p>
+          <p class="disclaimer">Tone: <strong>organized crew</strong> — similar to a tight‑knit gang or crime family — strictly for community, culture, and classroom camaraderie.</p>
+        </div>
+        <aside class="card pad">
+          <h2>Quick Facts</h2>
+          <div class="row"><span class="pill">Est. <strong>St. Augustine</strong></span><span class="pill">3rd Year • St. Anthony</span></div>
+          <ul>
+            <li>Founder: Leinold “BugJah8” Francisco</li>
+            <li>Founding Members: Earl Matthew “JAHBINDIA” Hipolito; Muhammad Rizwan “Jahwatre” Amilhamja</li>
+            <li>Core Values: Connection • Collaboration • Responsibility</li>
+          </ul>
+          <p class="muted">“Whatever BugJah8 said.” — <strong>rayyanjah</strong></p>
+        </aside>
+      </div>
+    </section><section class="ranks" id="ranks">
+  <h2>Ranks & Symbols</h2>
+  <div class="rank-grid">
+    <div class="card pad rank">
+      <div class="row"><div class="symbol" aria-hidden="true">🌱</div><div>
+        <div class="title">Jahspirant</div>
+        <div class="desc">New recruits learning the ways of the Org.</div>
+      </div></div>
+      <div class="shine"></div>
+    </div>
+    <div class="card pad rank">
+      <div class="row"><div class="symbol" aria-hidden="true">🧿</div><div>
+        <div class="title">Jah</div>
+        <div class="desc">Trusted members who carry out roles and tasks.</div>
+      </div></div>
+      <div class="shine"></div>
+    </div>
+    <div class="card pad rank">
+      <div class="row"><div class="symbol" aria-hidden="true">🐞</div><div>
+        <div class="title">Bug Jah</div>
+        <div class="desc">Core operators — the heartbeat of the Organization.</div>
+      </div></div>
+      <div class="shine"></div>
+    </div>
+    <div class="card pad rank">
+      <div class="row"><div class="symbol" aria-hidden="true">👑</div><div>
+        <div class="title">Bug Jah Leader</div>
+        <div class="desc">Strategic leads who guide operations and culture.</div>
+      </div></div>
+      <div class="shine"></div>
+    </div>
+  </div>
+</section>
+
+<section class="members" id="members">
+  <h2>Members Directory</h2>
+  <p class="muted">Each rank has <strong>10</strong> name slots. Click a tab, fill names, then <em>Save</em>. Your list stays on this device (localStorage).</p>
+  <div class="tabs" role="tablist" aria-label="Member ranks">
+    <button class="tab active" data-rank="jahspirant" role="tab" aria-selected="true">🌱 Jahspirants</button>
+    <button class="tab" data-rank="jah" role="tab" aria-selected="false">🧿 Jah</button>
+    <button class="tab" data-rank="bugjah" role="tab" aria-selected="false">🐞 Bug Jah</button>
+    <button class="tab" data-rank="leader" role="tab" aria-selected="false">👑 Bug Jah Leader</button>
+  </div>
+
+  <!-- Slots container injected by JS -->
+  <div id="slots" class="slot-grid" aria-live="polite"></div>
+
+  <div class="actions">
+    <button class="btn" id="saveBtn">Save</button>
+    <button class="btn" id="clearBtn">Clear Current Rank</button>
+  </div>
+</section>
+
+<section class="gallery" id="gallery">
+  <h2>Gallery</h2>
+  <div class="g-grid">
+    <figure class="g-item"><img src="received_1414130376521382.jpeg" alt="Bug Jah Org photo 1" /></figure>
+    <figure class="g-item"><img src="received_692824733795945.jpeg" alt="Bug Jah Org photo 2" /></figure>
+    <figure class="g-item"><img src="received_3731259623676150.jpeg" alt="Bug Jah Org photo 3" /></figure>
+    <figure class="g-item"><img src="received_654328357099560.jpeg" alt="Bug Jah Org photo 4" /></figure>
+  </div>
+</section>
+
+  </main>  <footer>
+    <div class="wrap">
+      <div>© <span id="year"></span> Bug Jah Org • Classroom‑born, community‑strong.</div>
+      <div class="muted">Built as a single‑file site for GitHub Pages.</div>
+    </div>
+  </footer>  <script>
+    // —— Minimal state & helpers ——
+    const RANKS = {
+      jahspirant: { label: 'Jahspirants', icon: '🌱' },
+      jah:        { label: 'Jah',         icon: '🧿' },
+      bugjah:     { label: 'Bug Jah',     icon: '🐞' },
+      leader:     { label: 'Bug Jah Leader', icon: '👑' },
+    };
+
+    const SLOTS_PER_RANK = 10;
+    const STORAGE_KEY = 'bugjah.members.v1';
+
+    const $ = (q, el=document) => el.querySelector(q);
+    const $$ = (q, el=document) => Array.from(el.querySelectorAll(q));
+
+    const state = {
+      active: 'jahspirant',
+      data: load() || defaultData(),
+    };
+
+    function defaultData(){
+      const blank = () => Array.from({length: SLOTS_PER_RANK}, () => '');
+      return {
+        jahspirant: blank(),
+        jah: blank(),
+        bugjah: (()=>{ const a = blank();
+          // Prefill the special entry for rayyanjah
+          a[0] = 'rayyanjah — "Whatever BugJah8 said"';
+          return a; })(),
+        leader: blank(),
+      };
     }
 
-    header {
-      background: #222;
-      color: #fff;
-      padding: 20px 0;
-      text-align: center;
+    function load(){
+      try{ return JSON.parse(localStorage.getItem(STORAGE_KEY)); }catch(e){ return null }
+    }
+    function save(){
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state.data));
     }
 
-    header h1 {
-      font-size: 2.5rem;
-      margin-bottom: 5px;
+    function renderSlots(){
+      const rank = state.active;
+      const container = $('#slots');
+      container.innerHTML = '';
+      const entries = state.data[rank];
+      for(let i=0; i<SLOTS_PER_RANK; i++){
+        const wrap = document.createElement('div');
+        wrap.className = 'slot';
+        const badge = document.createElement('div');
+        badge.className = 'badge';
+        badge.textContent = Object.values(RANKS).find((_, idx)=> idx>=0) && RANKS[rank].icon;
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = `Member #${i+1}`;
+        input.value = entries[i] || '';
+        input.setAttribute('data-index', i);
+        if(rank === 'bugjah' && i === 0){
+          input.readOnly = true; // lock the special line
+          input.title = 'Locked: tribute to rayyanjah';
+        }
+        wrap.appendChild(badge);
+        wrap.appendChild(input);
+        container.appendChild(wrap);
+      }
     }
 
-    header p {
-      font-style: italic;
+    function setActiveTab(btn){
+      $$('.tab').forEach(b=>{ b.classList.remove('active'); b.setAttribute('aria-selected','false'); });
+      btn.classList.add('active');
+      btn.setAttribute('aria-selected','true');
     }
 
-    nav {
-      background: #333;
-      display: flex;
-      justify-content: center;
+    // Tabs logic
+    $$('.tab').forEach(btn=>{
+      btn.addEventListener('click', ()=>{
+        state.active = btn.dataset.rank;
+        setActiveTab(btn);
+        renderSlots();
+      });
+    });
+
+    // Save & Clear buttons
+    $('#saveBtn').addEventListener('click', ()=>{
+      const rank = state.active;
+      const inputs = $$('#slots input');
+      inputs.forEach(inp=>{
+        const idx = Number(inp.getAttribute('data-index'));
+        state.data[rank][idx] = inp.value.trim();
+      });
+      save();
+      flash('#saveBtn');
+    });
+
+    $('#clearBtn').addEventListener('click', ()=>{
+      const rank = state.active;
+      if(!confirm(`Clear all ${RANKS[rank].label} slots on this device?`)) return;
+      state.data[rank] = Array.from({length:SLOTS_PER_RANK}, ()=> '');
+      if(rank === 'bugjah') state.data[rank][0] = 'rayyanjah — "Whatever BugJah8 said"';
+      renderSlots();
+      save();
+      flash('#clearBtn');
+    });
+
+    function flash(sel){
+      const el = $(sel);
+      el.style.outline = `2px solid var(--ring)`;
+      setTimeout(()=> el.style.outline = 'none', 400);
+    }
+
+    // Footer year
+    $('#year').textContent = new Date().getFullYear();
+
+    // Initial render
+    renderSlots();
+  </script></body>
+</html>      justify-content: center;
       flex-wrap: wrap;
     }
 

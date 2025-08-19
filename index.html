@@ -1,11 +1,185 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Bugjah</title>
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BugJahOrg</title>
+  <style>
+    /* Reset */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 5px;
+    }
+
+    header p {
+      font-style: italic;
+    }
+
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+    }
+
+    nav a {
+      color: #fff;
+      padding: 15px 20px;
+      text-decoration: none;
+      transition: background 0.3s;
+    }
+
+    nav a:hover {
+      background: #555;
+    }
+
+    section {
+      padding: 40px 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      color: #444;
+    }
+
+    .members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .member {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+
+    .member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      margin-bottom: 10px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+
+    footer {
+      background: #222;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      header h1 { font-size: 1.8rem; }
+      nav a { padding: 10px; font-size: 0.9rem; }
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to Bugjah!</h1>
-    <p>This is my first website hosted on GitHub Pages 🚀</p>
+  <header>
+    <h1>BugJahOrg</h1>
+    <p>"Unity, Fun, and Friendship"</p>
+  </header>
+
+  <nav>
+    <a href="#about">About</a>
+    <a href="#members">Members</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#contact">Contact</a>
+  </nav>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p style="text-align:center; max-width:700px; margin:auto;">
+      BugJahOrg is a group of friends built on trust, fun, and unity. 
+      Whether it’s hanging out, gaming, studying, or just making memories together,
+      we make every moment count. This website is dedicated to our bond as friends. 💙
+    </p>
+  </section>
+
+  <!-- Members Section -->
+  <section id="members">
+    <h2>Our Members</h2>
+    <div class="members">
+      <div class="member">
+        <img src="https://via.placeholder.com/100" alt="Member 1">
+        <h3>Member 1</h3>
+        <p>The cool one 😎</p>
+      </div>
+      <div class="member">
+        <img src="https://via.placeholder.com/100" alt="Member 2">
+        <h3>Member 2</h3>
+        <p>The funny one 😂</p>
+      </div>
+      <div class="member">
+        <img src="https://via.placeholder.com/100" alt="Member 3">
+        <h3>Member 3</h3>
+        <p>The chill one 💤</p>
+      </div>
+      <div class="member">
+        <img src="https://via.placeholder.com/100" alt="Member 4">
+        <h3>Member 4</h3>
+        <p>The smart one 🧠</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://via.placeholder.com/200" alt="Memory 1">
+      <img src="https://via.placeholder.com/200" alt="Memory 2">
+      <img src="https://via.placeholder.com/200" alt="Memory 3">
+      <img src="https://via.placeholder.com/200" alt="Memory 4">
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Us</h2>
+    <p style="text-align:center;">Want to reach out? Send us an email at:  
+      <a href="mailto:bugjahorg@gmail.com">bugjahorg@gmail.com</a>
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 BugJahOrg. All Rights Reserved.</p>
+  </footer>
 </body>
-</html>
+      </html>
